@@ -8,9 +8,31 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var connections = Connections()
+    @State private var isAddShown = false
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView {
+            List {
+                ForEach(connections.contacts) { contact in
+                    NavigationLink(destination: ConnectionView(connection: contact)) {
+                        HStack {
+                            Text(contact.name)
+                            Spacer()
+                        }
+                    }
+                }
+            }
+            .navigationBarTitle("Connections")
+            .navigationBarItems(trailing: Button(action: {
+                self.isAddShown = true
+            }) {
+                Image(systemName: "plus")
+            })
+            .sheet(isPresented: $isAddShown) {
+                AddContactView(connections: connections)
+            }
+        }
     }
 }
 

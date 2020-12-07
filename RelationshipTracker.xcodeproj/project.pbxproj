@@ -11,6 +11,13 @@
 		358F7BA32573459E007F4E3A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358F7BA22573459E007F4E3A /* ContentView.swift */; };
 		358F7BA52573459F007F4E3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 358F7BA42573459F007F4E3A /* Assets.xcassets */; };
 		358F7BA82573459F007F4E3A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 358F7BA72573459F007F4E3A /* Preview Assets.xcassets */; };
+		358F7BB12573F328007F4E3A /* AddContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358F7BB02573F328007F4E3A /* AddContactView.swift */; };
+		358F7BB42573F3B7007F4E3A /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358F7BB32573F3B7007F4E3A /* Contact.swift */; };
+		358F7BB72573F4AB007F4E3A /* Connections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358F7BB62573F4AB007F4E3A /* Connections.swift */; };
+		358F7BBE2573F9B0007F4E3A /* ConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358F7BBD2573F9B0007F4E3A /* ConnectionView.swift */; };
+		358F7BC125748629007F4E3A /* ContactFrequency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358F7BC025748629007F4E3A /* ContactFrequency.swift */; };
+		358F7BF1257C2EF6007F4E3A /* ImportantDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358F7BF0257C2EF6007F4E3A /* ImportantDate.swift */; };
+		358F7BF4257C6FE1007F4E3A /* AddImportantDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358F7BF3257C6FE0007F4E3A /* AddImportantDateView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +27,13 @@
 		358F7BA42573459F007F4E3A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		358F7BA72573459F007F4E3A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		358F7BA92573459F007F4E3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		358F7BB02573F328007F4E3A /* AddContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactView.swift; sourceTree = "<group>"; };
+		358F7BB32573F3B7007F4E3A /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		358F7BB62573F4AB007F4E3A /* Connections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connections.swift; sourceTree = "<group>"; };
+		358F7BBD2573F9B0007F4E3A /* ConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionView.swift; sourceTree = "<group>"; };
+		358F7BC025748629007F4E3A /* ContactFrequency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactFrequency.swift; sourceTree = "<group>"; };
+		358F7BF0257C2EF6007F4E3A /* ImportantDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportantDate.swift; sourceTree = "<group>"; };
+		358F7BF3257C6FE0007F4E3A /* AddImportantDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImportantDateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +66,15 @@
 		358F7B9F2573459E007F4E3A /* RelationshipTracker */ = {
 			isa = PBXGroup;
 			children = (
+				358F7BB02573F328007F4E3A /* AddContactView.swift */,
+				358F7BF3257C6FE0007F4E3A /* AddImportantDateView.swift */,
+				358F7BBD2573F9B0007F4E3A /* ConnectionView.swift */,
+				358F7BC025748629007F4E3A /* ContactFrequency.swift */,
+				358F7BF0257C2EF6007F4E3A /* ImportantDate.swift */,
 				358F7BA02573459E007F4E3A /* RelationshipTrackerApp.swift */,
 				358F7BA22573459E007F4E3A /* ContentView.swift */,
+				358F7BB62573F4AB007F4E3A /* Connections.swift */,
+				358F7BB32573F3B7007F4E3A /* Contact.swift */,
 				358F7BA42573459F007F4E3A /* Assets.xcassets */,
 				358F7BA92573459F007F4E3A /* Info.plist */,
 				358F7BA62573459F007F4E3A /* Preview Content */,
@@ -138,7 +159,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				358F7BB42573F3B7007F4E3A /* Contact.swift in Sources */,
+				358F7BB12573F328007F4E3A /* AddContactView.swift in Sources */,
+				358F7BF4257C6FE1007F4E3A /* AddImportantDateView.swift in Sources */,
+				358F7BF1257C2EF6007F4E3A /* ImportantDate.swift in Sources */,
+				358F7BB72573F4AB007F4E3A /* Connections.swift in Sources */,
 				358F7BA32573459E007F4E3A /* ContentView.swift in Sources */,
+				358F7BBE2573F9B0007F4E3A /* ConnectionView.swift in Sources */,
+				358F7BC125748629007F4E3A /* ContactFrequency.swift in Sources */,
 				358F7BA12573459E007F4E3A /* RelationshipTrackerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
