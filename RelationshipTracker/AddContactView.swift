@@ -7,20 +7,20 @@
 
 import SwiftUI
 
+class AddContactData: ObservableObject {
+    @Published var importantDates = [ImportantDate]()
+}
+
 struct AddContactView: View {
     @ObservedObject var connections: Connections
     @State private var contact = Contact(name: "", relationship: "", notes: "")
     @State private var contactFrequency = ContactFrequency()
     @State private var contactRemindersEnabled = false
     @Environment(\.presentationMode) var presentationMode
-    @State private var importantDates = [ImportantDate]()
-    @State private var draftImportantDate = ImportantDate()
-    @State private var date = Date()
+    
+    @ObservedObject var data = AddContactData()
+    
     @State private var addImportantDateShown = false
-    @State private var day = 0
-    @State private var month = 0
-    @State private var year = 0
-    @State private var customType = ""
     
     var body: some View {
         NavigationView {
@@ -57,88 +57,32 @@ struct AddContactView: View {
                     }
                 }
                 
-                Section {
+                Section(header: Text("Important dates")) {
                     HStack {
-                        Text("Important dates")
                         Spacer()
+                        
                         Button(action: {
                             self.addImportantDateShown = !addImportantDateShown
                         }) {
-                            if !addImportantDateShown {
-                                HStack {
-                                    Text("Add")
-                                    Image(systemName: "calendar.badge.plus")
-                                }
-                            } else {
-                                HStack {
-                                    Text("Cancel")
-                                }
+                            HStack {
+                                Text("Add a date")
+                                Image(systemName: "calendar.badge.plus")
                             }
                         }
+                            
+                        Spacer()
                     }
-                    
-                    if (addImportantDateShown) {
-                        Picker(selection: $draftImportantDate.type, label: Text("Type")) {
-                            ForEach(0..<ImportantDate.types.count) {
-                                Text(ImportantDate.types[$0])
-                            }
-                        }
-                        
+                    ForEach(data.importantDates) { date in
                         HStack {
-                            Text("Date")
-                            
+                            Text(date.typeDisplay)
                             Spacer()
-                            
-                            Picker(month == 0 ? "Month" : "\(month)", selection: $month) {
-                                ForEach(0..<13) {
-                                    if $0 == 0 {
-                                        Text("Month")
-                                    } else {
-                                        Text("\($0)")
-                                    }
-                                }
-                            }
-                            .pickerStyle(MenuPickerStyle())
-                            
-                            Text("/")
-                            
-                            Picker(day == 0 ? "Day" : "\(day)", selection: $day) {
-                                ForEach(0..<31) {
-                                    if $0 == 0 {
-                                        Text("Day")
-                                    } else {
-                                        Text("\($0)")
-                                    }
-                                }
-                            }
-                            .pickerStyle(MenuPickerStyle())
-                            
-                            Text("/")
-                            
-                            Picker(year == 0 ? "Year" : "\(year)", selection: $year) {
-                                ForEach(1900..<2021) {
-                                    Text(String($0))
-                                }
-                            }
-                            .pickerStyle(MenuPickerStyle())
-                        }
-
-                        HStack {
-                            Spacer()
-                            Button(action: {
-                                self.addImportantDateShown = false
-                            }) {
-                                HStack {
-                                    Text("Save")
-                                }
-                            }
-                            Spacer()
+                            Text(date.dateDisplay)
                         }
                     }
                 }
                 
                 Section {
-                    NavigationLink(destination: Text("Hi")) {
+                    NavigationLink(destination: AddExtraDetailsView()) {
                         Text("Extra details")
                     }
                 }
@@ -149,6 +93,9 @@ struct AddContactView: View {
             }, trailing: Button("Add") {
                 saveContact()
             })
+            .sheet(isPresented: $addImportantDateShown) {
+                AddImportantDateView(data: self.data)
+            }
         }
     }
     
