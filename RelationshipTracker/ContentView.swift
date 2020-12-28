@@ -8,16 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(entity: Connection.entity(), sortDescriptors: []) var connectionData: FetchedResults<Connection>
+    
     @ObservedObject var connections = Connections()
     @State private var isAddShown = false
     
     var body: some View {
         NavigationView {
             List {
-                ForEach(connections.contacts) { contact in
-                    NavigationLink(destination: ConnectionView(connection: contact)) {
+                ForEach(connectionData) { connection in
+                    NavigationLink(destination: ConnectionView(connection: connection)) {
                         HStack {
-                            Text(contact.name)
+                            Text(connection.wrappedName)
                             Spacer()
                         }
                     }
@@ -30,7 +33,7 @@ struct ContentView: View {
                 Image(systemName: "plus")
             })
             .sheet(isPresented: $isAddShown) {
-                AddContactView(connections: connections)
+                AddContactView(connections: connections).environment(\.managedObjectContext, self.moc)
             }
         }
     }

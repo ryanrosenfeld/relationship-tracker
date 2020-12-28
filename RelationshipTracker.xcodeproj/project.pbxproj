@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3558ACE92597D7350088C1EE /* RelationshipTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3558ACE72597D7350088C1EE /* RelationshipTracker.xcdatamodeld */; };
+		3558ACF7259A9E030088C1EE /* RememberedDate+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3558ACF5259A9E030088C1EE /* RememberedDate+CoreDataClass.swift */; };
+		3558ACF8259A9E030088C1EE /* RememberedDate+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3558ACF6259A9E030088C1EE /* RememberedDate+CoreDataProperties.swift */; };
+		3558ACFD259A9E520088C1EE /* Connection+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3558ACFB259A9E520088C1EE /* Connection+CoreDataClass.swift */; };
+		3558ACFE259A9E520088C1EE /* Connection+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3558ACFC259A9E520088C1EE /* Connection+CoreDataProperties.swift */; };
 		358F7BA12573459E007F4E3A /* RelationshipTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358F7BA02573459E007F4E3A /* RelationshipTrackerApp.swift */; };
 		358F7BA32573459E007F4E3A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358F7BA22573459E007F4E3A /* ContentView.swift */; };
 		358F7BA52573459F007F4E3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 358F7BA42573459F007F4E3A /* Assets.xcassets */; };
@@ -19,9 +24,15 @@
 		358F7BF1257C2EF6007F4E3A /* ImportantDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358F7BF0257C2EF6007F4E3A /* ImportantDate.swift */; };
 		358F7BF4257C6FE1007F4E3A /* AddImportantDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358F7BF3257C6FE0007F4E3A /* AddImportantDateView.swift */; };
 		358F7C232581CCD9007F4E3A /* AddExtraDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358F7C222581CCD9007F4E3A /* AddExtraDetailsView.swift */; };
+		35F833F42597D5D70030327F /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F833F32597D5D70030327F /* Persistence.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3558ACE82597D7350088C1EE /* RelationshipTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RelationshipTracker.xcdatamodel; sourceTree = "<group>"; };
+		3558ACF5259A9E030088C1EE /* RememberedDate+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "RememberedDate+CoreDataClass.swift"; path = "RelationshipTracker/RememberedDate+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3558ACF6259A9E030088C1EE /* RememberedDate+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "RememberedDate+CoreDataProperties.swift"; path = "RelationshipTracker/RememberedDate+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3558ACFB259A9E520088C1EE /* Connection+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Connection+CoreDataClass.swift"; path = "RelationshipTracker/Connection+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3558ACFC259A9E520088C1EE /* Connection+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Connection+CoreDataProperties.swift"; path = "RelationshipTracker/Connection+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		358F7B9D2573459E007F4E3A /* RelationshipTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RelationshipTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		358F7BA02573459E007F4E3A /* RelationshipTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationshipTrackerApp.swift; sourceTree = "<group>"; };
 		358F7BA22573459E007F4E3A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -36,6 +47,7 @@
 		358F7BF0257C2EF6007F4E3A /* ImportantDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportantDate.swift; sourceTree = "<group>"; };
 		358F7BF3257C6FE0007F4E3A /* AddImportantDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImportantDateView.swift; sourceTree = "<group>"; };
 		358F7C222581CCD9007F4E3A /* AddExtraDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExtraDetailsView.swift; sourceTree = "<group>"; };
+		35F833F32597D5D70030327F /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Persistence.swift; path = ../../DeleteMe/DeleteMe/Persistence.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +64,10 @@
 		358F7B942573459E007F4E3A = {
 			isa = PBXGroup;
 			children = (
+				3558ACFB259A9E520088C1EE /* Connection+CoreDataClass.swift */,
+				3558ACFC259A9E520088C1EE /* Connection+CoreDataProperties.swift */,
+				3558ACF5259A9E030088C1EE /* RememberedDate+CoreDataClass.swift */,
+				3558ACF6259A9E030088C1EE /* RememberedDate+CoreDataProperties.swift */,
 				358F7B9F2573459E007F4E3A /* RelationshipTracker */,
 				358F7B9E2573459E007F4E3A /* Products */,
 			);
@@ -73,8 +89,10 @@
 				358F7BF3257C6FE0007F4E3A /* AddImportantDateView.swift */,
 				358F7BBD2573F9B0007F4E3A /* ConnectionView.swift */,
 				358F7BC025748629007F4E3A /* ContactFrequency.swift */,
+				35F833F32597D5D70030327F /* Persistence.swift */,
 				358F7BF0257C2EF6007F4E3A /* ImportantDate.swift */,
 				358F7BA02573459E007F4E3A /* RelationshipTrackerApp.swift */,
+				3558ACE72597D7350088C1EE /* RelationshipTracker.xcdatamodeld */,
 				358F7BA22573459E007F4E3A /* ContentView.swift */,
 				358F7BB62573F4AB007F4E3A /* Connections.swift */,
 				358F7BB32573F3B7007F4E3A /* Contact.swift */,
@@ -163,13 +181,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				358F7BB42573F3B7007F4E3A /* Contact.swift in Sources */,
+				3558ACFE259A9E520088C1EE /* Connection+CoreDataProperties.swift in Sources */,
+				3558ACF8259A9E030088C1EE /* RememberedDate+CoreDataProperties.swift in Sources */,
+				3558ACFD259A9E520088C1EE /* Connection+CoreDataClass.swift in Sources */,
 				358F7BB12573F328007F4E3A /* AddContactView.swift in Sources */,
 				358F7BF4257C6FE1007F4E3A /* AddImportantDateView.swift in Sources */,
 				358F7BF1257C2EF6007F4E3A /* ImportantDate.swift in Sources */,
+				3558ACF7259A9E030088C1EE /* RememberedDate+CoreDataClass.swift in Sources */,
+				3558ACE92597D7350088C1EE /* RelationshipTracker.xcdatamodeld in Sources */,
 				358F7BB72573F4AB007F4E3A /* Connections.swift in Sources */,
 				358F7BA32573459E007F4E3A /* ContentView.swift in Sources */,
 				358F7C232581CCD9007F4E3A /* AddExtraDetailsView.swift in Sources */,
 				358F7BBE2573F9B0007F4E3A /* ConnectionView.swift in Sources */,
+				35F833F42597D5D70030327F /* Persistence.swift in Sources */,
 				358F7BC125748629007F4E3A /* ContactFrequency.swift in Sources */,
 				358F7BA12573459E007F4E3A /* RelationshipTrackerApp.swift in Sources */,
 			);
@@ -360,6 +384,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3558ACE72597D7350088C1EE /* RelationshipTracker.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3558ACE82597D7350088C1EE /* RelationshipTracker.xcdatamodel */,
+			);
+			currentVersion = 3558ACE82597D7350088C1EE /* RelationshipTracker.xcdatamodel */;
+			path = RelationshipTracker.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 358F7B952573459E007F4E3A /* Project object */;
 }

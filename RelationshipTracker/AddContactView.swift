@@ -12,7 +12,9 @@ class AddContactData: ObservableObject {
 }
 
 struct AddContactView: View {
-    @ObservedObject var connections: Connections
+    @Environment(\.managedObjectContext) var moc
+//    @State private var connection: Connection
+    
     @State private var contact = Contact(name: "", relationship: "", notes: "")
     @State private var contactFrequency = ContactFrequency()
     @State private var contactRemindersEnabled = false
@@ -100,14 +102,15 @@ struct AddContactView: View {
     }
     
     func saveContact() {
-        connections.contacts.append(contact)
+        let connection = Connection(context: moc)
+        connection.name = contact.name
+        try? self.moc.save()
         self.presentationMode.wrappedValue.dismiss()
     }
 }
 
 struct AddContactView_Previews: PreviewProvider {
     static var previews: some View {
-        let connections = Connections()
-        AddContactView(connections: connections)
+        AddContactView()
     }
 }

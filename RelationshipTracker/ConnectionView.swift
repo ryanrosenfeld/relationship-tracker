@@ -8,17 +8,16 @@
 import SwiftUI
 
 struct ConnectionView: View {
-    let connection: Contact
+    let connection: Connection
     
     var body: some View {
         Text("This is where the deetz go")
-            .navigationBarTitle(connection.name)
+            .navigationBarTitle(connection.wrappedName)
     }
 }
 
 struct ConnectionView_Previews: PreviewProvider {
     static var previews: some View {
-        let contact = Contact(name: "Grammy", relationship: "Grandma", notes: "Notes go here")
-        ConnectionView(connection: contact)
+        ConnectionView(connection: Connection())
     }
 }

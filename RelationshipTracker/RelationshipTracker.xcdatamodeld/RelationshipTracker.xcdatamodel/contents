@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20A2411" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Connection" representedClassName="Connection" syncable="YES">
+        <attribute name="daysPerReminder" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="remindersEnabled" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="importantDates" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RememberedDate" inverseName="connection" inverseEntity="RememberedDate"/>
+    </entity>
+    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
+        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="RememberedDate" representedClassName="RememberedDate" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <relationship name="connection" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Connection" inverseName="importantDates" inverseEntity="Connection"/>
+    </entity>
+    <elements>
+        <element name="Connection" positionX="-63" positionY="-18" width="128" height="89"/>
+        <element name="Item" positionX="-54" positionY="0" width="128" height="44"/>
+        <element name="RememberedDate" positionX="-36" positionY="18" width="128" height="74"/>
+    </elements>
+</model>

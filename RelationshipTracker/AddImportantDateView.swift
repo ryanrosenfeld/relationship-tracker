@@ -56,7 +56,7 @@ struct AddImportantDateView: View {
                     
                     Text("/")
                     
-                    Picker(draftImportantDate.year == 0 ? "Year" : "\(draftImportantDate.year)", selection: $draftImportantDate.year) {
+                    Picker(draftImportantDate.year == 0 ? "Year" : String(draftImportantDate.year), selection: $draftImportantDate.year) {
                         ForEach(1900..<2021) {
                             Text(String($0))
                         }
