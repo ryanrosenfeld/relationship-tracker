@@ -12,6 +12,7 @@
 		3558ACF8259A9E030088C1EE /* RememberedDate+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3558ACF6259A9E030088C1EE /* RememberedDate+CoreDataProperties.swift */; };
 		3558ACFD259A9E520088C1EE /* Connection+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3558ACFB259A9E520088C1EE /* Connection+CoreDataClass.swift */; };
 		3558ACFE259A9E520088C1EE /* Connection+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3558ACFC259A9E520088C1EE /* Connection+CoreDataProperties.swift */; };
+		3558AD01259AA08A0088C1EE /* ReminderFrequencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3558AD00259AA08A0088C1EE /* ReminderFrequencyView.swift */; };
 		358F7BA12573459E007F4E3A /* RelationshipTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358F7BA02573459E007F4E3A /* RelationshipTrackerApp.swift */; };
 		358F7BA32573459E007F4E3A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358F7BA22573459E007F4E3A /* ContentView.swift */; };
 		358F7BA52573459F007F4E3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 358F7BA42573459F007F4E3A /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 		3558ACF6259A9E030088C1EE /* RememberedDate+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "RememberedDate+CoreDataProperties.swift"; path = "RelationshipTracker/RememberedDate+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3558ACFB259A9E520088C1EE /* Connection+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Connection+CoreDataClass.swift"; path = "RelationshipTracker/Connection+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3558ACFC259A9E520088C1EE /* Connection+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Connection+CoreDataProperties.swift"; path = "RelationshipTracker/Connection+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3558AD00259AA08A0088C1EE /* ReminderFrequencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderFrequencyView.swift; sourceTree = "<group>"; };
 		358F7B9D2573459E007F4E3A /* RelationshipTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RelationshipTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		358F7BA02573459E007F4E3A /* RelationshipTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationshipTrackerApp.swift; sourceTree = "<group>"; };
 		358F7BA22573459E007F4E3A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			children = (
 				358F7C222581CCD9007F4E3A /* AddExtraDetailsView.swift */,
 				358F7BB02573F328007F4E3A /* AddContactView.swift */,
+				3558AD00259AA08A0088C1EE /* ReminderFrequencyView.swift */,
 				358F7BF3257C6FE0007F4E3A /* AddImportantDateView.swift */,
 				358F7BBD2573F9B0007F4E3A /* ConnectionView.swift */,
 				358F7BC025748629007F4E3A /* ContactFrequency.swift */,
@@ -194,6 +197,7 @@
 				358F7C232581CCD9007F4E3A /* AddExtraDetailsView.swift in Sources */,
 				358F7BBE2573F9B0007F4E3A /* ConnectionView.swift in Sources */,
 				35F833F42597D5D70030327F /* Persistence.swift in Sources */,
+				3558AD01259AA08A0088C1EE /* ReminderFrequencyView.swift in Sources */,
 				358F7BC125748629007F4E3A /* ContactFrequency.swift in Sources */,
 				358F7BA12573459E007F4E3A /* RelationshipTrackerApp.swift in Sources */,
 			);

@@ -18,7 +18,7 @@ struct ContentView: View {
         NavigationView {
             List {
                 ForEach(connectionData) { connection in
-                    NavigationLink(destination: ConnectionView(connection: connection)) {
+                    NavigationLink(destination: ConnectionView(connection: connection).environment(\.managedObjectContext, self.moc)) {
                         HStack {
                             Text(connection.wrappedName)
                             Spacer()
@@ -33,7 +33,7 @@ struct ContentView: View {
                 Image(systemName: "plus")
             })
             .sheet(isPresented: $isAddShown) {
-                AddContactView(connections: connections).environment(\.managedObjectContext, self.moc)
+                AddContactView().environment(\.managedObjectContext, self.moc)
             }
         }
     }

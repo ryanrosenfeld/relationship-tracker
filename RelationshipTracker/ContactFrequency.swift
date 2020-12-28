@@ -15,8 +15,12 @@ struct ContactFrequency {
     var timeUnit = 1
     var enabled = false
     
+    var frequencyValue: Int {
+        ContactFrequency.frequencies[frequency]
+    }
+    
     var frequencyDisplay: String {
-        "\(ContactFrequency.frequencies[frequency])x"
+        "\(frequencyValue)x"
     }
     
     var timeUnitsDisplay: String {
@@ -25,6 +29,21 @@ struct ContactFrequency {
     
     var display: String {
         "\(frequencyDisplay) per \(timeUnitsDisplay)"
+    }
+    
+    var daysPerReminder: Int {
+        switch timeUnit {
+        case 0:
+            return 1
+        case 1:
+            return 7 / frequencyValue
+        case 2:
+            return 30 / frequencyValue
+        case 3:
+            return 365 / frequencyValue
+        default:
+            return 7
+        }
     }
     
     static func frequencyDisplay(index: Int) -> String {

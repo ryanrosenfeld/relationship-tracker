@@ -7,35 +7,29 @@
 
 import SwiftUI
 
-class AddContactData: ObservableObject {
-    @Published var importantDates = [ImportantDate]()
-}
-
 struct AddContactView: View {
     @Environment(\.managedObjectContext) var moc
-//    @State private var connection: Connection
-    
-    @State private var contact = Contact(name: "", relationship: "", notes: "")
-    @State private var contactFrequency = ContactFrequency()
-    @State private var contactRemindersEnabled = false
     @Environment(\.presentationMode) var presentationMode
     
-    @ObservedObject var data = AddContactData()
-    
+    @State private var name = ""
+    @State private var remindersEnabled = false
+    @State private var contactFrequency = ContactFrequency()
+    @State private var contactRemindersEnabled = false
+    @State private var importantDates = [ImportantDate]()
     @State private var addImportantDateShown = false
     
     var body: some View {
         NavigationView {
             Form {
                 Section {
-                    TextField("Name", text: $contact.name)
+                    TextField("Name", text: $name)
                 }
                 
                 Section {
-                    Toggle(isOn: $contactRemindersEnabled) {
+                    Toggle(isOn: $remindersEnabled) {
                         VStack(alignment: .leading) {
                             Text("Reminders")
-                            if contactRemindersEnabled {
+                            if remindersEnabled {
                                 Text(contactFrequency.display)
                                     .font(.footnote)
                                     .foregroundColor(.green)
@@ -43,7 +37,7 @@ struct AddContactView: View {
                         }
                     }
                     
-                    if contactRemindersEnabled {
+                    if remindersEnabled {
                         Picker(selection: $contactFrequency.frequency, label: Text("")) {
                             ForEach(1..<6) {
                                 Text("\($0)x")
@@ -64,7 +58,7 @@ struct AddContactView: View {
                         Spacer()
                         
                         Button(action: {
-                            self.addImportantDateShown = !addImportantDateShown
+                            self.addImportantDateShown.toggle()
                         }) {
                             HStack {
                                 Text("Add a date")
@@ -74,7 +68,7 @@ struct AddContactView: View {
                             
                         Spacer()
                     }
-                    ForEach(data.importantDates) { date in
+                    ForEach(importantDates) { date in
                         HStack {
                             Text(date.typeDisplay)
                             Spacer()
@@ -89,21 +83,23 @@ struct AddContactView: View {
                     }
                 }
             }
-            .navigationBarTitle(contact.name == "" ? "New connection" : contact.name)
+            .navigationBarTitle(name == "" ? "New connection" : name)
             .navigationBarItems(leading: Button("Cancel") {
-                self.presentationMode.wrappedValue.dismiss()
+                presentationMode.wrappedValue.dismiss()
             }, trailing: Button("Add") {
                 saveContact()
             })
             .sheet(isPresented: $addImportantDateShown) {
-                AddImportantDateView(data: self.data)
+                AddImportantDateView(dates: importantDates)
             }
         }
     }
     
     func saveContact() {
         let connection = Connection(context: moc)
-        connection.name = contact.name
+        connection.name = name
+        connection.remindersEnabled = remindersEnabled
+        connection.daysPerReminder = Int16(contactFrequency.daysPerReminder)
         try? self.moc.save()
         self.presentationMode.wrappedValue.dismiss()
     }

@@ -8,11 +8,26 @@
 import SwiftUI
 
 struct ConnectionView: View {
+    @Environment(\.managedObjectContext) var moc
+    @Environment(\.presentationMode) var presentationMode
+    
     let connection: Connection
     
     var body: some View {
-        Text("This is where the deetz go")
-            .navigationBarTitle(connection.wrappedName)
+        VStack {
+            Text("Remind me every \(connection.daysPerReminder) days")
+            
+            Button(action: deleteConnection) {
+                Text("Delete")
+            }
+        }
+        .navigationBarTitle(connection.wrappedName)
+    }
+    
+    func deleteConnection() {
+        moc.delete(connection)
+        try? moc.save()
+        presentationMode.wrappedValue.dismiss()
     }
 }
 
