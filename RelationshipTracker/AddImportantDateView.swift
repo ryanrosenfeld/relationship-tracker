@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AddImportantDateView: View {
-    @State var dates = [ImportantDate]()
+    @ObservedObject var data: AddContactData
     @State private var draftImportantDate = ImportantDate()
     @Environment(\.presentationMode) var presentationMode
     
@@ -79,13 +79,13 @@ struct AddImportantDateView: View {
     }
     
     func saveDate() {
-        self.dates.append(draftImportantDate)
-        self.presentationMode.wrappedValue.dismiss()
+        data.importantDates.append(draftImportantDate)
+        presentationMode.wrappedValue.dismiss()
     }
 }
 
 struct AddImportantDateView_Previews: PreviewProvider {
     static var previews: some View {
-        AddImportantDateView()
+        AddImportantDateView(data: AddContactData())
     }
 }

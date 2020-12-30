@@ -7,50 +7,30 @@
 
 import SwiftUI
 
+class AddContactData: ObservableObject {
+    @Published var name = ""
+    @Published var remindersEnabled = false
+    @Published var contactFrequency = ContactFrequency()
+    @Published var importantDates = [ImportantDate]()
+}
+
 struct AddContactView: View {
     @Environment(\.managedObjectContext) var moc
     @Environment(\.presentationMode) var presentationMode
     
-    @State private var name = ""
-    @State private var remindersEnabled = false
-    @State private var contactFrequency = ContactFrequency()
-    @State private var contactRemindersEnabled = false
-    @State private var importantDates = [ImportantDate]()
+    @ObservedObject var data = AddContactData()
+    
     @State private var addImportantDateShown = false
     
     var body: some View {
         NavigationView {
             Form {
                 Section {
-                    TextField("Name", text: $name)
+                    TextField("Name", text: $data.name)
                 }
                 
                 Section {
-                    Toggle(isOn: $remindersEnabled) {
-                        VStack(alignment: .leading) {
-                            Text("Reminders")
-                            if remindersEnabled {
-                                Text(contactFrequency.display)
-                                    .font(.footnote)
-                                    .foregroundColor(.green)
-                            }
-                        }
-                    }
-                    
-                    if remindersEnabled {
-                        Picker(selection: $contactFrequency.frequency, label: Text("")) {
-                            ForEach(1..<6) {
-                                Text("\($0)x")
-                            }
-                        }
-                        .pickerStyle(SegmentedPickerStyle())
-                        
-                        Picker(selection: $contactFrequency.timeUnit, label: Text("per")) {
-                            ForEach(0..<ContactFrequency.timeUnits.count) {
-                                Text(ContactFrequency.timeUnitsDisplay(index: $0))
-                            }
-                        }
-                    }
+                    ReminderFrequencyView(data: data)
                 }
                 
                 Section(header: Text("Important dates")) {
@@ -58,7 +38,7 @@ struct AddContactView: View {
                         Spacer()
                         
                         Button(action: {
-                            self.addImportantDateShown.toggle()
+                            addImportantDateShown.toggle()
                         }) {
                             HStack {
                                 Text("Add a date")
@@ -68,7 +48,7 @@ struct AddContactView: View {
                             
                         Spacer()
                     }
-                    ForEach(importantDates) { date in
+                    ForEach(data.importantDates) { date in
                         HStack {
                             Text(date.typeDisplay)
                             Spacer()
@@ -83,23 +63,23 @@ struct AddContactView: View {
                     }
                 }
             }
-            .navigationBarTitle(name == "" ? "New connection" : name)
+            .navigationBarTitle(data.name == "" ? "New connection" : data.name)
             .navigationBarItems(leading: Button("Cancel") {
                 presentationMode.wrappedValue.dismiss()
             }, trailing: Button("Add") {
                 saveContact()
             })
             .sheet(isPresented: $addImportantDateShown) {
-                AddImportantDateView(dates: importantDates)
+                AddImportantDateView(data: data)
             }
         }
     }
     
     func saveContact() {
         let connection = Connection(context: moc)
-        connection.name = name
-        connection.remindersEnabled = remindersEnabled
-        connection.daysPerReminder = Int16(contactFrequency.daysPerReminder)
+        connection.name = data.name
+        connection.remindersEnabled = data.remindersEnabled
+        connection.daysPerReminder = Int16(data.contactFrequency.daysPerReminder)
         try? self.moc.save()
         self.presentationMode.wrappedValue.dismiss()
     }
