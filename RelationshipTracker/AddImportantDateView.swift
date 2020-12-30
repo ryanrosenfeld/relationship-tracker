@@ -15,63 +15,24 @@ struct AddImportantDateView: View {
     var body: some View {
         NavigationView {
             Form {
-                Picker(selection: $draftImportantDate.type, label: Text("Type")) {
-                    ForEach(0..<ImportantDate.types.count) {
-                        Text(ImportantDate.types[$0])
-                    }
-                }
-                
-                if draftImportantDate.usingCustomType {
-                    TextField("Custom type", text: $draftImportantDate.customType)
-                }
-                
-                HStack {
-                    Text("Date")
-                    
-                    Spacer()
-                    
-                    Picker(draftImportantDate.month == 0 ? "Month" : "\(draftImportantDate.month)", selection: $draftImportantDate.month) {
-                        ForEach(0..<13) {
-                            if $0 == 0 {
-                                Text("Month")
-                            } else {
-                                Text("\($0)")
-                            }
+                Section {
+                    Picker(selection: $draftImportantDate.type, label: Text("Type")) {
+                        ForEach(0..<ImportantDate.types.count) {
+                            Text(ImportantDate.types[$0])
                         }
                     }
-                    .pickerStyle(MenuPickerStyle())
                     
-                    Text("/")
-                    
-                    Picker(draftImportantDate.day == 0 ? "Day" : "\(draftImportantDate.day)", selection: $draftImportantDate.day) {
-                        ForEach(0..<31) {
-                            if $0 == 0 {
-                                Text("Day")
-                            } else {
-                                Text("\($0)")
-                            }
-                        }
+                    if draftImportantDate.usingCustomType {
+                        TextField("Custom type", text: $draftImportantDate.customType)
                     }
-                    .pickerStyle(MenuPickerStyle())
                     
-                    Text("/")
-                    
-                    Picker(draftImportantDate.year == 0 ? "Year" : String(draftImportantDate.year), selection: $draftImportantDate.year) {
-                        ForEach(1900..<2021) {
-                            Text(String($0))
-                        }
-                    }
-                    .pickerStyle(MenuPickerStyle())
+                    DateSelectionView(month: $draftImportantDate.month, day: $draftImportantDate.day, year: $draftImportantDate.year)
                 }
 
-                HStack {
-                    Spacer()
+                Section {
                     Button(action: saveDate) {
-                        HStack {
-                            Text("Save")
-                        }
+                        Text("Save")
                     }
-                    Spacer()
                 }
             }
             .navigationBarTitle("New date")

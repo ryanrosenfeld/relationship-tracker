@@ -11,7 +11,7 @@ struct ReminderFrequencyView: View {
     @ObservedObject var data: AddContactData
     
     var body: some View {
-        VStack {
+        Section {
             Toggle(isOn: $data.remindersEnabled) {
                 VStack(alignment: .leading) {
                     Text("Reminders")
@@ -24,16 +24,18 @@ struct ReminderFrequencyView: View {
             }
             
             if data.remindersEnabled {
-                Picker(selection: $data.contactFrequency.frequency, label: Text("")) {
-                    ForEach(1..<6) {
-                        Text("\($0)x")
+                VStack {
+                    Picker(selection: $data.contactFrequency.frequency, label: Text("")) {
+                        ForEach(1..<6) {
+                            Text("\($0)x")
+                        }
                     }
-                }
-                .pickerStyle(SegmentedPickerStyle())
-                
-                Picker(selection: $data.contactFrequency.timeUnit, label: Text("per")) {
-                    ForEach(0..<ContactFrequency.timeUnits.count) {
-                        Text(ContactFrequency.timeUnitsDisplay(index: $0))
+                    .pickerStyle(SegmentedPickerStyle())
+                    
+                    Picker(selection: $data.contactFrequency.timeUnit, label: Text("per")) {
+                        ForEach(0..<ContactFrequency.timeUnits.count) {
+                            Text(ContactFrequency.timeUnitsDisplay(index: $0))
+                        }
                     }
                 }
             }

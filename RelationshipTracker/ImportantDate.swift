@@ -16,9 +16,9 @@ struct ImportantDate: Identifiable {
     var id = UUID()
     var type = 0
     var customType = ""
-    var day = 1
-    var month = 1
-    var year = Calendar.current.component(.year, from: Date())
+    var day = 0
+    var month = 0
+    var year = Calendar.current.component(.year, from: Date()) - 1
     
     var dateDisplay: String {
         "\(month) / \(day) / \(year)"
