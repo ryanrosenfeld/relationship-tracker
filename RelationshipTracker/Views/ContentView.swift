@@ -13,6 +13,7 @@ struct ContentView: View {
     
     @ObservedObject var connections = Connections()
     @State private var isAddShown = false
+    @State private var isOpen = true
     
     var body: some View {
         NavigationView {

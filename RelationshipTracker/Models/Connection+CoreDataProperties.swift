@@ -2,7 +2,7 @@
 //  Connection+CoreDataProperties.swift
 //  RelationshipTracker
 //
-//  Created by Ryan Rosenfeld on 12/28/20.
+//  Created by Ryan Rosenfeld on 3/15/21.
 //
 //
 
@@ -16,13 +16,23 @@ extension Connection {
         return NSFetchRequest<Connection>(entityName: "Connection")
     }
 
+    @NSManaged public var daysPerReminder: Int16
     @NSManaged public var name: String?
     @NSManaged public var remindersEnabled: Bool
-    @NSManaged public var daysPerReminder: Int16
+    @NSManaged public var notes: String?
     @NSManaged public var importantDates: NSSet?
 
     var wrappedName: String {
         name ?? "Unknown name"
+    }
+    
+    var wrappedNotes: String {
+        notes ?? "Unknown notes"
+    }
+    
+    var importantDateArray: [RememberedDate] {
+        let set = importantDates as? Set<RememberedDate> ?? []
+        return Array(set)
     }
 }
 

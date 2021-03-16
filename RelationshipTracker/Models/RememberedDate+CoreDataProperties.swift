@@ -20,6 +20,13 @@ extension RememberedDate {
     @NSManaged public var type: String?
     @NSManaged public var connection: Connection?
 
+    var wrappedType: String {
+        type ?? "Unknown type"
+    }
+    
+    var wrappedDate: Date {
+        date ?? Date()
+    }
 }
 
 extension RememberedDate : Identifiable {

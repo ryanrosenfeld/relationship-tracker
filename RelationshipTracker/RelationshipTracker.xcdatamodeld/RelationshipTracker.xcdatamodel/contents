@@ -3,6 +3,7 @@
     <entity name="Connection" representedClassName="Connection" syncable="YES">
         <attribute name="daysPerReminder" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="notes" optional="YES" attributeType="String"/>
         <attribute name="remindersEnabled" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <relationship name="importantDates" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RememberedDate" inverseName="connection" inverseEntity="RememberedDate"/>
     </entity>
@@ -15,7 +16,7 @@
         <relationship name="connection" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Connection" inverseName="importantDates" inverseEntity="Connection"/>
     </entity>
     <elements>
-        <element name="Connection" positionX="-63" positionY="-18" width="128" height="89"/>
+        <element name="Connection" positionX="-63" positionY="-18" width="128" height="104"/>
         <element name="Item" positionX="-54" positionY="0" width="128" height="44"/>
         <element name="RememberedDate" positionX="-36" positionY="18" width="128" height="74"/>
     </elements>

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ReminderFrequencyView: View {
-    @ObservedObject var data: AddContactData
+    @ObservedObject var data: ConnectionFormData
     
     var body: some View {
         Section {
@@ -45,6 +45,6 @@ struct ReminderFrequencyView: View {
 
 struct ReminderFrequencyView_Previews: PreviewProvider {
     static var previews: some View {
-        ReminderFrequencyView(data: AddContactData())
+        ReminderFrequencyView(data: ConnectionFormData())
     }
 }
